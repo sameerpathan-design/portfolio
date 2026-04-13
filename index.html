@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sameer Pathan | Video Editor & Graphic Designer</title>
+  <meta name="description" content="Portfolio website for Sameer Pathan — Video Editor, Graphic Designer, and Visual Storyteller." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+
+      --color-bg: #f7f6f2;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f1efe9;
+      --color-surface-offset: #e8e3db;
+      --color-border: rgba(40, 37, 29, 0.12);
+      --color-divider: rgba(40, 37, 29, 0.08);
+      --color-text: #28251d;
+      --color-text-muted: #6f6a61;
+      --color-text-faint: #9a9488;
+      --color-primary: #0c686d;
+      --color-primary-hover: #084f53;
+      --color-primary-soft: rgba(12, 104, 109, 0.08);
+      --color-card: rgba(255,255,255,0.72);
+      --shadow-sm: 0 1px 2px rgba(28,22,12,0.06);
+      --shadow-md: 0 14px 30px rgba(28,22,12,0.08);
+      --radius-sm: 0.5rem;
+      --radius-md: 0.9rem;
+      --radius-lg: 1.4rem;
+      --radius-xl: 1.8rem;
+      --content: 1180px;
+      --font-body: 'Manrope', sans-serif;
+      --font-display: 'Instrument Serif', serif;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #121211;
+      --color-surface: #171715;
+      --color-surface-2: #1d1c1a;
+      --color-surface-offset: #252320;
+      --color-border: rgba(230, 225, 214, 0.11);
+      --color-divider: rgba(230, 225, 214, 0.08);
+      --color-text: #f1ede4;
+      --color-text-muted: #b6afa2;
+      --color-text-faint: #847c6f;
+      --color-primary: #76b4b7;
+      --color-primary-hover: #9cd0d2;
+      --color-primary-soft: rgba(118, 180, 183, 0.12);
+      --color-card: rgba(255,255,255,0.03);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top right, rgba(118,180,183,0.08), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(118,180,183,0.05), transparent 30%),
+        var(--color-bg);
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    p { color: var(--color-text-muted); max-width: 68ch; }
+    h1,h2,h3 { margin: 0; line-height: 1.1; }
+    .skip-link {
+      position: absolute; left: 1rem; top: -3rem; background: var(--color-primary); color: #fff;
+      padding: 0.75rem 1rem; border-radius: var(--radius-sm); z-index: 1000;
+    }
+    .skip-link:focus { top: 1rem; }
+    .container { width: min(calc(100% - 2rem), var(--content)); margin-inline: auto; }
+    .section { padding: clamp(4rem, 8vw, 7rem) 0; }
+    .section-header { display: grid; gap: 0.8rem; margin-bottom: 2.5rem; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content;
+      padding: 0.45rem 0.8rem; border-radius: 999px; background: var(--color-primary-soft);
+      color: var(--color-primary); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .eyebrow::before {
+      content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: currentColor;
+    }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 999;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      min-height: 4.75rem;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 0.9rem; font-weight: 800; letter-spacing: 0.01em;
+    }
+    .brand-mark {
+      width: 2.25rem; height: 2.25rem; border-radius: 0.8rem; display: grid; place-items: center;
+      background: var(--color-text); color: var(--color-bg); font-family: var(--font-display); font-size: 1.15rem;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-size: var(--text-sm); color: var(--color-text-muted);
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--color-text); }
+    .theme-toggle {
+      width: 2.75rem; height: 2.75rem; border-radius: 999px; border: 1px solid var(--color-border);
+      background: var(--color-surface); color: var(--color-text); display: grid; place-items: center; cursor: pointer;
+    }
+
+    .hero {
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 8vw, 6.5rem);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center;
+    }
+    .hero-copy { display: grid; gap: 1.25rem; }
+    .hero h1 {
+      font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 400; letter-spacing: -0.03em;
+      max-width: 9ch;
+    }
+    .hero .lead {
+      font-size: var(--text-lg); color: var(--color-text); max-width: 34ch;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 3rem;
+      padding: 0.9rem 1.2rem; border-radius: 999px; border: 1px solid transparent;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      font-size: var(--text-sm); font-weight: 700;
+    }
+    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
+    .btn-primary { background: var(--color-text); color: var(--color-bg); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--color-primary); color: #fff; }
+    .btn-secondary { border-color: var(--color-border); background: transparent; color: var(--color-text); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { background: var(--color-surface); }
+
+    .hero-visual {
+      position: relative; min-height: 540px; border-radius: 2rem; overflow: hidden;
+      background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: var(--shadow-md);
+    }
+    .hero-visual img {
+      width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5;
+      filter: saturate(0.92) contrast(1.02);
+    }
+    .floating-note {
+      position: absolute; left: 1rem; bottom: 1rem; right: 1rem;
+      background: color-mix(in srgb, var(--color-bg) 68%, transparent);
+      border: 1px solid var(--color-border); border-radius: 1.2rem;
+      padding: 1rem 1rem; backdrop-filter: blur(16px);
+    }
+    .floating-note strong { display: block; margin-bottom: 0.25rem; }
+
+    .about-grid, .contact-grid {
+      display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem;
+    }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;
+    }
+    .stat {
+      padding: 1.2rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+      background: var(--color-card);
+    }
+    .stat strong {
+      display: block; font-size: var(--text-xl); color: var(--color-text); margin-bottom: 0.35rem;
+    }
+
+    .services-grid, .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .service-card, .testimonial-card, .contact-card {
+      border: 1px solid var(--color-border); background: var(--color-card); border-radius: var(--radius-lg);
+      padding: 1.35rem; box-shadow: var(--shadow-sm);
+    }
+    .service-card h3, .testimonial-card h3, .gallery-card h3, .contact-card h3 {
+      font-size: 1.05rem; margin-bottom: 0.6rem;
+    }
+
+    .gallery-wrap {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.25rem;
+    }
+    .gallery-column { display: grid; gap: 1.25rem; }
+    .gallery-card {
+      border: 1px solid var(--color-border); border-radius: 1.5rem; overflow: hidden; background: var(--color-surface);
+      box-shadow: var(--shadow-sm); transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+    .gallery-card:hover, .gallery-card:focus-within {
+      transform: translateY(-4px); box-shadow: var(--shadow-md);
+    }
+    .gallery-card img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    }
+    .gallery-content { padding: 1rem 1rem 1.1rem; }
+    .meta {
+      display: inline-flex; font-size: var(--text-xs); color: var(--color-primary); background: var(--color-primary-soft);
+      border-radius: 999px; padding: 0.35rem 0.7rem; margin-bottom: 0.8rem; font-weight: 700;
+    }
+
+    .skills-cloud {
+      display: flex; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .skill-pill {
+      padding: 0.8rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface);
+      font-size: var(--text-sm); font-weight: 600;
+    }
+
+    .testimonial-card p { font-size: 0.98rem; }
+    .testimonial-footer { margin-top: 1rem; color: var(--color-text); font-weight: 700; }
+    .testimonial-footer span { display: block; color: var(--color-text-muted); font-weight: 500; font-size: var(--text-sm); }
+
+    .contact-links {
+      display: grid; gap: 0.9rem; margin-top: 1rem;
+    }
+    .contact-link {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      padding: 1rem 1.1rem; border: 1px solid var(--color-border); border-radius: 1rem; background: var(--color-surface);
+    }
+    .contact-link span { color: var(--color-text-muted); font-size: var(--text-sm); }
+
+    .site-footer {
+      padding: 2rem 0 3rem; border-top: 1px solid var(--color-divider); color: var(--color-text-muted);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+
+    [data-reveal] {
+      opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms ease;
+    }
+    [data-reveal].is-visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .about-grid, .contact-grid, .gallery-wrap,
+      .services-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual { min-height: 420px; }
+      .stats { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .nav { align-items: flex-start; padding: 0.8rem 0; }
+      .nav-links { gap: 0.7rem; }
+      .hero h1 { max-width: 100%; }
+      .hero-visual { min-height: 360px; }
+      .section { padding: 3.8rem 0; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Sameer Pathan home">
+        <span class="brand-mark" aria-hidden="true">SP</span>
+        <span>Sameer Pathan</span>
+      </a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <span class="eyebrow" contenteditable="true">Video Editor · Graphic Designer</span>
+          <h1 contenteditable="true">Sameer Pathan creates visuals that people remember.</h1>
+          <p class="lead" contenteditable="true">I turn ideas into engaging visuals through video editing, motion-driven storytelling, and impactful graphic design for brands, creators, and modern businesses.</p>
+          <p contenteditable="true">My work blends clarity, rhythm, and strong visual direction—whether it is a reel, a thumbnail, a campaign asset, or a branded design system built to grab attention and hold it.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View My Work</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <img src="https://picsum.photos/seed/sameercover/1000/1250" alt="Demo cover visual representing Sameer Pathan's creative portfolio" width="1000" height="1250" loading="eager" />
+          <div class="floating-note">
+            <strong contenteditable="true">Visual storyteller for fast-moving brands.</strong>
+            <span contenteditable="true">Editing, design, and digital creatives shaped for social media, campaigns, and content-first businesses.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">About Me</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;" contenteditable="true">Creative work should feel sharp, intentional, and alive.</h2>
+        </div>
+        <div data-reveal>
+          <p contenteditable="true">I am Sameer Pathan, a creative professional specializing in video editing and graphic design. I help brands, creators, and businesses present their message through polished visuals, compelling edits, and design that feels both modern and purposeful.</p>
+          <p contenteditable="true">My approach combines visual storytelling, audience awareness, and a strong eye for detail. I enjoy shaping content that not only looks good, but also communicates clearly—whether the goal is brand presence, engagement, reach, or conversion.</p>
+          <p contenteditable="true">From reels and YouTube edits to posters, thumbnails, and social creatives, I focus on work that fits the platform, respects the brand, and leaves a memorable impression.</p>
+          <div class="stats">
+            <div class="stat">
+              <strong contenteditable="true">Editing</strong>
+              <span contenteditable="true">Short-form, YouTube, promos, and motion-led content.</span>
+            </div>
+            <div class="stat">
+              <strong contenteditable="true">Design</strong>
+              <span contenteditable="true">Brand posters, social creatives, and thumbnails.</span>
+            </div>
+            <div class="stat">
+              <strong contenteditable="true">Strategy</strong>
+              <span contenteditable="true">Visual direction shaped around audience attention.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Portfolio Gallery</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;" contenteditable="true">Selected visuals, edits, and creative campaigns.</h2>
+          <p contenteditable="true">A focused portfolio works better than an overloaded one, so this layout highlights a small set of featured projects with enough context to show style, category, and intent.</p>
+        </div>
+
+        <div class="gallery-wrap">
+          <div class="gallery-column">
+            <article class="gallery-card" data-reveal>
+              <img src="https://picsum.photos/seed/edit1/800/600" alt="Demo project for reels editing" width="800" height="600" loading="lazy" />
+              <div class="gallery-content">
+                <span class="meta" contenteditable="true">Reels Editing</span>
+                <h3 contenteditable="true">High-Retention Fashion Reel</h3>
+                <p contenteditable="true">A fast-cut edit designed for short-form engagement, blending motion rhythm, clean transitions, and strong opening frames.</p>
+              </div>
+            </article>
+
+            <article class="gallery-card" data-reveal>
+              <img src="https://picsum.photos/seed/design1/800/600" alt="Demo project for brand poster design" width="800" height="600" loading="lazy" />
+              <div class="gallery-content">
+                <span class="meta" contenteditable="true">Brand Poster</span>
+                <h3 contenteditable="true">Launch Poster for Digital Campaign</h3>
+                <p contenteditable="true">A clean promotional poster concept built for brand visibility, combining contrast, hierarchy, and bold composition.</p>
+              </div>
+            </article>
+
+            <article class="gallery-card" data-reveal>
+              <img src="https://picsum.photos/seed/thumb1/800/600" alt="Demo project for YouTube thumbnail design" width="800" height="600" loading="lazy" />
+              <div class="gallery-content">
+                <span class="meta" contenteditable="true">YouTube Thumbnail</span>
+                <h3 contenteditable="true">Click-Focused Creator Thumbnail</h3>
+                <p contenteditable="true">A thumbnail layout designed to improve visual hook, readability, and attention within crowded video feeds.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="gallery-column">
+            <article class="gallery-card" data-reveal>
+              <img src="https://picsum.photos/seed/motion1/800/600" alt="Demo project for motion graphics" width="800" height="600" loading="lazy" />
+              <div class="gallery-content">
+                <span class="meta" contenteditable="true">Motion Graphics</span>
+                <h3 contenteditable="true">Title Pack for Promo Video</h3>
+                <p contenteditable="true">Motion-led title design created to add pace, clarity, and branded energy to an event promotion video.</p>
+              </div>
+            </article>
+
+            <article class="gallery-card" data-reveal>
+              <img src="https://picsum.photos/seed/social1/800/600" alt="Demo project for social media creative" width="800" height="600" loading="lazy" />
+              <div class="gallery-content">
+                <span class="meta" contenteditable="true">Social Media Creative</span>
+                <h3 contenteditable="true">Campaign Creative Set</h3>
+                <p contenteditable="true">A coordinated set of social visuals built to keep brand communication consistent across multiple posts and formats.</p>
+              </div>
+            </article>
+
+            <article class="gallery-card" data-reveal>
+              <img src="https://picsum.photos/seed/eventedit/800/600" alt="Demo project for event promo edit" width="800" height="600" loading="lazy" />
+              <div class="gallery-content">
+                <span class="meta" contenteditable="true">Event Promo Edit</span>
+                <h3 contenteditable="true">Energetic Event Highlight Video</h3>
+                <p contenteditable="true">A cinematic highlight edit that balances pacing, sound-led cuts, and visual flow to promote a live event experience.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Services</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;" contenteditable="true">Creative support for content, campaigns, and personal brands.</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card" data-reveal>
+            <h3 contenteditable="true">Video Editing</h3>
+            <p contenteditable="true">Short-form reels, YouTube edits, promotional cuts, pacing refinement, and story-driven post-production.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <h3 contenteditable="true">Graphic Design</h3>
+            <p contenteditable="true">Posters, thumbnails, social creatives, marketing visuals, and layouts designed for clarity and impact.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <h3 contenteditable="true">Social Media Content Design</h3>
+            <p contenteditable="true">Platform-specific content assets shaped to support consistency, engagement, and audience attention.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <h3 contenteditable="true">Branding Support</h3>
+            <p contenteditable="true">Visual design support for creators and businesses that want more cohesive and recognizable content.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <h3 contenteditable="true">Motion-based Creative Assets</h3>
+            <p contenteditable="true">Animated titles, motion graphics, intro sequences, and dynamic visuals for premium presentation.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <h3 contenteditable="true">Creative Direction</h3>
+            <p contenteditable="true">Guidance on visual tone, layout, pacing, and presentation style to help content feel more polished and intentional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Skills & Tools</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;" contenteditable="true">Built around craft, software fluency, and visual consistency.</h2>
+        </div>
+        <div class="skills-cloud" data-reveal>
+          <span class="skill-pill" contenteditable="true">Video Editing</span>
+          <span class="skill-pill" contenteditable="true">Graphic Design</span>
+          <span class="skill-pill" contenteditable="true">Social Media Creatives</span>
+          <span class="skill-pill" contenteditable="true">Thumbnail Design</span>
+          <span class="skill-pill" contenteditable="true">Branding</span>
+          <span class="skill-pill" contenteditable="true">Motion Graphics</span>
+          <span class="skill-pill" contenteditable="true">Reels Editing</span>
+          <span class="skill-pill" contenteditable="true">YouTube Video Editing</span>
+          <span class="skill-pill" contenteditable="true">Poster Design</span>
+          <span class="skill-pill" contenteditable="true">Adobe Premiere Pro</span>
+          <span class="skill-pill" contenteditable="true">After Effects</span>
+          <span class="skill-pill" contenteditable="true">Photoshop</span>
+          <span class="skill-pill" contenteditable="true">Illustrator</span>
+          <span class="skill-pill" contenteditable="true">Canva</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Testimonials</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;" contenteditable="true">What collaborators value in the work.</h2>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card" data-reveal>
+            <h3 contenteditable="true">Fast, polished, and easy to work with.</h3>
+            <p contenteditable="true">Sameer understood the tone we wanted immediately and turned rough ideas into visuals that looked clean, premium, and social-ready.</p>
+            <div class="testimonial-footer" contenteditable="true">Aarav Mehta<span>Founder, Content Studio</span></div>
+          </article>
+          <article class="testimonial-card" data-reveal>
+            <h3 contenteditable="true">Strong eye for pacing and presentation.</h3>
+            <p contenteditable="true">The edits felt energetic without becoming messy. Every cut, title, and frame felt intentional and aligned with our brand.</p>
+            <div class="testimonial-footer" contenteditable="true">Nisha Khan<span>Marketing Lead, Lifestyle Brand</span></div>
+          </article>
+          <article class="testimonial-card" data-reveal>
+            <h3 contenteditable="true">Creative quality with professional consistency.</h3>
+            <p contenteditable="true">From thumbnails to campaign creatives, Sameer delivered work that improved our content presence and made our visuals much stronger.</p>
+            <div class="testimonial-footer" contenteditable="true">Rohan Shaikh<span>Creator & Consultant</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Contact</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 400;" contenteditable="true">Let’s build visuals that feel sharp, relevant, and memorable.</h2>
+          <p contenteditable="true">If you need a video editor, graphic designer, or creative partner for brand visuals and social content, I’d be glad to connect.</p>
+        </div>
+        <div class="contact-card" data-reveal>
+          <h3 contenteditable="true">Reach out</h3>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:yourname@example.com">
+              <strong>Email</strong>
+              <span contenteditable="true">yourname@example.com</span>
+            </a>
+            <a class="contact-link" href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">
+              <strong>Instagram</strong>
+              <span contenteditable="true">@yourusername</span>
+            </a>
+            <a class="contact-link" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+              <strong>LinkedIn</strong>
+              <span contenteditable="true">linkedin.com/in/yourusername</span>
+            </a>
+          </div>
+          <div style="margin-top:1.25rem; padding-top:1.1rem; border-top:1px solid var(--color-divider); color: var(--color-text-muted);" contenteditable="true">
+            Available for freelance projects, content collaborations, and long-term creative support.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span contenteditable="true">© 2026 Sameer Pathan. All rights reserved.</span>
+      <span contenteditable="true">Designed for Sameer Pathan</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let theme = prefersDark ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      function syncToggle() {
+        toggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☼</span>' : '<span aria-hidden="true">☾</span>';
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+      syncToggle();
+
+      toggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        syncToggle();
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
